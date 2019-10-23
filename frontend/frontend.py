@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[18]:
+# In[7]:
 
 
 from PIL import Image
 
 
-# In[19]:
+# In[8]:
 
 
 import streamlit as st
@@ -15,35 +15,41 @@ import numpy as np
 import pandas as pd
 
 
-# In[20]:
+# In[9]:
 
 
 st.title('Yelp Report Card')
 
 
-# In[ ]:
+# In[10]:
 
 
 st.write('by Hamilton Chang\n')
 
 
-# In[21]:
+# In[11]:
 
 
 image = Image.open('download.png')
 st.image(image, caption='Yelp!', use_column_width=False, format='PNG')
 
 
-# In[28]:
+# In[12]:
 
 
 st.markdown('Welcome to the Yelp Report Card.  For this project, I collected approximately 115,000 reviews from 896 restaurants in New York City.  I then processed them for Sentiment Analysis to determine if the review was positive or negative.  My next step was to use Latent Dirichlet Alloction or LDA on the approximately 3.7 million words in the reviews to determine the topic of the review, separated as Food, or Service.  Lastly, I combined my two analysis to determine if the reveiwer liked the food/service, or did not like the food/service and produced a final score as a percentage of responses.')
 
 
-# In[ ]:
+# In[13]:
 
 
+st.markdown('Why are we doing this?  To help restaurants establish a baseline and determine what part of the dining experience they need to work on.  This potentially could be an add on service for business owners so they can fine tune their restaurant and hopefully improve their numbers.')
 
+
+# In[14]:
+
+
+st.markdown('## Feel Free to Play with it!')
 
 
 # In[22]:
