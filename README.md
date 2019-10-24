@@ -8,4 +8,8 @@ Yelp is quite possible the largest review site in the world for local businesses
 
 Overtime, the popularity of Yelp as a restaurant information resource has led to the creation of millions of points of data.  This has somewhat diluted the impact of Yelp reviews for a restaurant and led to some discontent from restaurant owners.  Below are 3 of many points that resulted in dissatisfaction with business owners on Yelp.
 
-**1.**  
+**1.**  Law of Large Numbers
+
+Due to the sheer volume of reviews, every review that goes into a restaurant ends up stabilizing their rating.  There it stays forever, usually at a 4.  At this point, most restaurants shoot for a 4, and only the truly best manage to get a 4.5.
+
+**2.**  Extreme 
