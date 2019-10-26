@@ -10,7 +10,7 @@ Overtime, the popularity of Yelp as a restaurant information resource has led to
 
 **1.  Law of Large Numbers**
 
-Due to the sheer volume of reviews, every review that goes into a restaurant ends up stabilizing their rating.  There it stays forever, usually at a 4.  At this point, most restaurants shoot for a 4, and only the truly best manage to get a 4.5.  You can see the distribution in reviews in the below graph.
+Due to the sheer volume of reviews, every review that goes into a restaurant ends up stabilizing their rating.  There it stays forever, usually at a 4.  At this point, most restaurants shoot for a 4, and only the truly best manage to get a 4.5.  You can see the distribution in reviews in the below graph.  It is assumed 1 and 2 star restaurants usually end up closing, but I can assure you, my local Chinese take out is open and busy as ever.
 
 <img src="Images/star_hist_report_card.png">
 
@@ -20,11 +20,17 @@ Yelp being the designated ground for people looking to respond in some way or an
 
 **3. Poor representation**
 
-As described above, due to the focus on a single issue.  These are not reviews as we have come to commonly expect, noting positives and deficiencies, but rather words of praise or complaint about a single aspect of the dining experience.  As such, many restaurants see a lot of 5 star or 1 star reviews which they feel is unbalanced and affects their total score.
+As described above, due to the focus on a single issue we see a large range of positive and negative reviews that aren't properly reflective of the entire dining experience.  These are not reviews as we have come to commonly expect, noting positives and deficiencies.  As such, many restaurants see a lot of 5 star or 1 star reviews which they feel is unbalanced and affects their total score.
 
 ## The Question
 
-Given that we have established many restaurants face when it comes to dealing with online reviews, is there a way in which Yelp and these restaurants can meet halfway
+Given that we have established some of the issues many restaurants face when it comes to dealing with online reviews, is there a way in which Yelp and these restaurants can meet halfway to provide workable feedback?
+
+Yelp holds millions of user reviews, and using NLP we can take this data and provide comprehensive feedback for a restaurant that provides a quantitative metric for restaurants to measure against without having to spend hours hand sorting reviews.  Using this metric, restaurants can hone in on problems and work to improve their business.
+
+## Step 1:  Gathering Data
+
+
 
 
 
