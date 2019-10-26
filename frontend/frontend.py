@@ -7,7 +7,7 @@
 from PIL import Image
 
 
-# In[8]:
+# In[2]:
 
 
 import streamlit as st
@@ -100,6 +100,13 @@ st.write(df1.loc[option])
 
 
 st.bar_chart(df1.loc[option], height=40)
+
+
+# In[3]:
+
+
+number = st.number_input('give me a number!')
+st.write('you chose', number)
 
 
 # In[ ]:
