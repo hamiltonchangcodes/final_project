@@ -14,4 +14,4 @@ Due to the sheer volume of reviews, every review that goes into a restaurant end
 
 **2.  Extreme Volatility**
 
-
+Yelp being the designated ground for people looking to respond 
