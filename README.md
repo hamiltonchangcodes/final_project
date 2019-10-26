@@ -12,7 +12,7 @@ Overtime, the popularity of Yelp as a restaurant information resource has led to
 
 Due to the sheer volume of reviews, every review that goes into a restaurant ends up stabilizing their rating.  There it stays forever, usually at a 4.  At this point, most restaurants shoot for a 4, and only the truly best manage to get a 4.5.  You can see the distribution in reviews in the below graph.
 
-<img src=
+<img src="Images/star_hist_report_card.png">
 
 **2.  Extreme Volatility**
 
