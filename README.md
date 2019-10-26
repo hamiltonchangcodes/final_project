@@ -24,13 +24,13 @@ As described above, due to the focus on a single issue we see a large range of p
 
 ## The Question
 
-Given that we have established some of the issues many restaurants face when it comes to dealing with online reviews, is there a way in which Yelp and these restaurants can meet halfway to provide workable feedback?
+Given that we have established some of the issues many restaurants face when it comes to dealing with online reviews, is there a way in which Yelp can add value for these restaurants and provide workable feedback?
 
-Yelp holds millions of user reviews, and using NLP we can take this data and provide comprehensive feedback for a restaurant that provides a quantitative metric for restaurants to measure against without having to spend hours hand sorting reviews.  Using this metric, restaurants can hone in on problems and work to improve their business.
+Yelp holds millions of user reviews, and using NLP we can take this data and provide comprehensive quantitative metrics for a restaurant without having to spend hours hand sorting reviews.  Using this metric, restaurants can hone in on problems and work to improve their business.
 
 ## Step 1:  Gathering Data
 
-
+Using Yelp's API, I obtained the information and more importantly, the restaurant_id for each restaurant in a given borough.  This provided me with a list of 1000 restaurant_id that I could then use to scrape 5 pages or at least 100 reviews for restaurants that had that many reviews.  Some restaurants scraped did not have 100 reviews, and other restaurants had more than 100 reviews due to 
 
 
 
