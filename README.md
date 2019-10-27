@@ -40,7 +40,13 @@ Brooklyn: 100,166 Reviews
 Staten Island: 51,490 Reviews
 Bronx: 59,150 Reviews
 
-Both Staten Island and the Bronx were the least responsive on Yelp.  I believe this has something to do with my belief (discussed [here](https://towardsdatascience.com/mo-data-mo-money-a1272f653046) that most people tend not to leave Yelp reviews unless they have a significant dining experience.  These restaurants, being in home territory, are providing daily meals for the residents, and thus they are largely ignored by locals on Yelp.  Dining in Manhattan is widely considered to be an experience, or special occasion and thus is more likely to garner a response on Yelp.  In addition, consulting with a local Staten Island expert, I was informed that due to Staten Island's largely residential nature, most residents either drive across the bridge into Brooklyn for unique dining experiences, or stay home to eat.  This may contribute to Staten Island's low response rate.
+Both Staten Island and the Bronx were the least responsive on Yelp.  I believe this has something to do with my belief (discussed [here](https://towardsdatascience.com/mo-data-mo-money-a1272f653046)) that most people tend not to leave Yelp reviews unless they have a significant dining experience.  These restaurants, being in home territory, are providing daily meals for the residents, and thus they are largely ignored by locals on Yelp.  Dining in Manhattan is widely considered to be an experience, or special occasion and thus is more likely to garner a response on Yelp.  In addition, consulting with a local Staten Island expert, I was informed that due to Staten Island's largely residential nature, most residents either drive across the bridge into Brooklyn for unique dining experiences, or stay home to eat.  This may contribute to Staten Island's low response rate.
+
+## Vader
+
+After gathering the data, the first step I took was to run the data through NLTK's Vader Sentiment Analysis.  This was a simple lambda function that returned to us a set of 4 scores for each review, a positive, neutral, negative and compound score.  The distributions were a little lopsided due to the nature of responses one typically sees on Yelp.  The below graph is a sampling of the frequency of positive and negative reviews.
+
+As we can see, there are more reviews featuring positive sentiment than negative.  That's ok.  So long as we work within this acknowledged framework, we can comprehend the eventual scores..
 
 
 
