@@ -66,11 +66,11 @@ The next step in our process is using Latent Dirichlet Allocation.  This is an u
 
 LDA is an exhaustive process that requires constant tuning and rerunning in order to ensure the model is trained sufficiently.  In the end, I needed to add over 1000 additional stopwords in order to ensure my model was sufficiently prepared.  Words I added to the stop list included all parts of speech that were not relevant to the process like brother, sister, steve, delicious, maybe, bomb, scrumptious.  I wanted to ensure food and service focused words were included, but did make sure to leave off service related adjectives in order to expand the range of service.  My final topic list is below:
 
-<img src='Images/LDAtopics.png' height='50%' width = '50%'>
+<img src='Images/LDAtopics.png' height='75%' width = '75%'>
 
 Once the topic list was finalized, I was able to apply the model to the entirety of my reviews and assign a topic number to the highest scoring topic for each review, as seen below:
 
-<img src='Images/LDAtopicsassigned.png' height='50%' width = '50%'>
+<img src='Images/LDAtopicsassigned.png'>
 
 ## Putting it Together
 
@@ -133,7 +133,7 @@ Further distallation can be done to simplify the score, but I feel this provides
 
 All this data was put in a streamlit front end wrapper that allows users to select a restaurant from a dropdown menu and see the scores for each restaurant below:
 
-<img src='Images/frontendsample.png' height='50%' width = '50%'>
+<img src='Images/frontendsample.png' height='60%' width = '60%'>
 
 ## Conclusions
 
