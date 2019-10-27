@@ -44,9 +44,86 @@ Both Staten Island and the Bronx were the least responsive on Yelp.  I believe t
 
 ## Vader
 
-After gathering the data, the first step I took was to run the data through NLTK's Vader Sentiment Analysis.  This was a simple lambda function that returned to us a set of 4 scores for each review, a positive, neutral, negative and compound score.  The distributions were a little lopsided due to the nature of responses one typically sees on Yelp.  The below graph is a sampling of the frequency of positive and negative reviews.
+After gathering the data, the first step I took was to run the data through NLTK's Vader Sentiment Analysis.  This was a simple lambda function that returned to us a set of 4 scores for each review, a positive, neutral, negative and compound score.  The distributions were a little lopsided due to the nature of responses one typically sees on Yelp.  The below graph is a sampling of the frequency of average compound reviews.
 
-As we can see, there are more reviews featuring positive sentiment than negative.  That's ok.  So long as we work within this acknowledged framework, we can comprehend the eventual scores..
+<img src=' '>
+
+As we can see, there are more reviews featuring positive sentiment than negative.  That's ok.  So long as we work within this acknowledged framework, we can comprehend the eventual scores.
+
+For those unfamiliar with Vader, below is a snapshot of some of our restaurant reviews that have been "vaderized":
+
+<img src=' '>
+
+To illustrate how Vader sentiment analysis works, below are sample reviews from the restaurant with the highest average compound score, Fish Cheeks (.945), and the lowest, Di Fara Pizza (.511).
+
+<img src=' '> <img src=' '> <img src=' '> <img src=' '>
+
+As you can see, there are alot of superalitves associated with the food at Fish Cheeks, people are effusive in their praise.  For Di Fara Pizza on the other hand, one of the most famous pizza restaurants in NYC, many people praise the food, but are also dissatisfied with the lines, and the wait is typically 45 minutes to 1.5 hours for a slice of pizza.
+
+## LDA
+
+The next step in our process is using Latent Dirichlet Allocation.  This is an unsupervised machine learning tool that samples the corpus (all the text) of our data and attempts to derive common topics.  I trained this model on restaurants where service was mentioned, and this comprised only 30% of my overall data.  I instructed the LDA to find 15 topics, since I knew service was underrepresented in my data, so I was looking for at least 2 topics that represented service, and the rest I needed to ensure that the entirety of cuisine on offer in NYC was represented.  It would have been an epic failure if my model was to come across a review mentioning the food and fail at identifying it.
+
+LDA is an exhaustive process that requires constant tuning and rerunning in order to ensure the model is trained sufficiently.  In the end, I needed to add over 1000 additional stopwords in order to ensure my model was sufficiently prepared.  Words I added to the stop list included all parts of speech that were not relevant to the process like brother, sister, steve, delicious, maybe, bomb, scrumptious.  I wanted to ensure food and service focused words were included, but did make sure to leave off service related adjectives in order to expand the range of service.  My final topic list is below:
+
+<img src=' '>
+
+Once the topic list was finalized, I was able to apply the model to the entirety of my reviews and assign a topic number to the highest scoring topic for each review, as seen below:
+
+<img src=' '>
+
+## Putting it Together
+
+The final part of the project involved loading the Vader and LDA dataframes and writing a function to tally each one and create a score.  The code is below:
+
+```python
+#establishing food vs service topics
+food = [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14]
+service = [0, 8, 9]
+#iterable
+nums = [str(s+1) for s in range(139)]
+
+
+reportcard = []
+for row in df[['restaurant_name']].itertuples():
+    #these are inside to reset after each restaurant
+    numreviews = 0
+    badfood = 0
+    goodfood = 0
+    badservice = 0
+    goodservice = 0
+    for j in nums:
+       #check for Nans
+        if not np.isnan(df.iloc[row[0]]['lda_review_'+j]):
+            #if integer version of topic number in this cell[0] is in service
+            if int(df.iloc[row[0]]['lda_review_'+j]) in service:
+                #and if compound score is less than .5, add a point to bad service
+                if vd.iloc[row[0]]['compound'+j]<.5:
+                    badservice +=1
+                else:
+                    #otherwise add a point to good service
+                    goodservice +=1
+            #if integer version of topic number in this cell[0] is in food
+            elif int(df.iloc[row[0]]['lda_review_'+j]) in food:
+                #and if compound score is less than .5, add a point to bad food
+                if vd.iloc[row[0]]['compound'+j]<0.5:
+                    badfood +=1
+                #otherwise add a point to good food.
+                else:
+                    goodfood +=1
+            else:
+                #if all that fails, let me know what failed
+                print(int(df.iloc[row[0]]['lda_review_'+j]))
+            #track for number of reviews in each row for averaging purposes
+            numreviews += 1
+    
+    #append all this to a dictionary in the following fashion
+    reportcard.append({'restaurant': row[1], 
+                        'posfood_score': goodfood/numreviews, 
+                        'negfood_score': badfood/numreviews,
+                        'posservice_score': goodservice/numreviews, 
+                        'negservice_score': badservice/numreviews})
+                        ```
 
 
 
