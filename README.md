@@ -123,7 +123,17 @@ for row in df[['restaurant_name']].itertuples():
                         'negfood_score': badfood/numreviews,
                         'posservice_score': goodservice/numreviews, 
                         'negservice_score': badservice/numreviews})
-                        ```
+```
+
+The final result is stored in a dictionary that we can than convert to a json file and export to use in other applications.  I assembled the score as a percentage of total reviews, such that we can tell restaurants:
+
+"Of the people who left a review, 60% said they loved your food, but 30% said they hated it." 
+
+Further distallation can be done to simplify the score, but I feel this provides a sufficient snap shot for restaurant owners to discern where they are relative to the baseline as time goes on.
+
+## Conclusions
+
+
 
 
 
