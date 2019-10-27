@@ -30,7 +30,29 @@ Yelp holds millions of user reviews, and using NLP we can take this data and pro
 
 ## Step 1:  Gathering Data
 
-Using Yelp's API, I obtained the information and more importantly, the restaurant_id for each restaurant in a given borough.  This provided me with a list of 1000 restaurant_id that I could then use to scrape 5 pages or at least 100 reviews for restaurants that had that many reviews.  Some restaurants scraped did not have 100 reviews, and other restaurants had more than 100 reviews due to 
+Using Yelp's API, I obtained the information and more importantly, the restaurant_id for each restaurant in a given borough.  This provided me with a list of 1000 restaurant_ids that I could then use to scrape 5 pages or at least 100 reviews for restaurants that had that many reviews.  Some restaurants scraped did not have 100 reviews, and other restaurants had more than 100 reviews due to users updating their reviews.  Some of these updated reviews were positive, and some were negative.
+
+Final counts were as follows:
+
+Manhattan: 115,588 Reviews
+Queens: 94,301 Reviews
+Brooklyn: 100,166 Reviews
+Staten Island: 51,490 Reviews
+Bronx: 59,150 Reviews
+
+Both Staten Island and the Bronx were the least responsive on Yelp.  I believe this has something to do with my belief (discussed [here](https://towardsdatascience.com/mo-data-mo-money-a1272f653046) that most people tend not to leave Yelp reviews unless they have a significant dining experience.  These restaurants, being in home territory, are providing daily meals for the residents, and thus they are largely ignored by locals on Yelp.  Dining in Manhattan is widely considered to be an experience, or special occasion and thus is more likely to garner a response on Yelp.  In addition, consulting with a local Staten Island expert, I was informed that due to Staten Island's largely residential nature, most residents either drive across the bridge into Brooklyn for unique dining experiences, or stay home to eat.  This may contribute to Staten Island's low response rate.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
