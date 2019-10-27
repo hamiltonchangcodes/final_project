@@ -56,7 +56,7 @@ For those unfamiliar with Vader, below is a snapshot of some of our restaurant r
 
 To illustrate how Vader sentiment analysis works, below are sample reviews from the restaurant with the highest average compound score, Fish Cheeks (.945), and the lowest, Di Fara Pizza (.511).
 
-Fish Cheeks<img src='Images/Screen Shot 2019-10-23 at 9.40.46 PM.png' height='45%' width = '45%'> Fish Cheeks<img src='Images/Screen Shot 2019-10-23 at 9.41.21 PM.png' height='45%' width = '45%'> Di Fara Pizza<img src='Images/Screen Shot 2019-10-23 at 9.43.05 PM.png' height='45%' width = '45%'>Di Fara Pizza<img src='Images/Screen Shot 2019-10-23 at 9.45.04 PM.png' height='45%' width = '45%'>
+<img src='Images/Screen Shot 2019-10-23 at 9.40.46 PM.png' height='45%' width = '45%'><img src='Images/Screen Shot 2019-10-23 at 9.41.21 PM.png' height='45%' width = '45%'><img src='Images/Screen Shot 2019-10-23 at 9.43.05 PM.png' height='45%' width = '45%'><img src='Images/Screen Shot 2019-10-23 at 9.45.04 PM.png' height='45%' width = '45%'>
 
 As you can see, there are alot of superalitves associated with the food at Fish Cheeks, people are effusive in their praise.  For Di Fara Pizza on the other hand, one of the most famous pizza restaurants in NYC, many people praise the food, but are also dissatisfied with the lines, and the wait is typically 45 minutes to 1.5 hours for a slice of pizza.
 
