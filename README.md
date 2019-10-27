@@ -46,17 +46,17 @@ Both Staten Island and the Bronx were the least responsive on Yelp.  I believe t
 
 After gathering the data, the first step I took was to run the data through NLTK's Vader Sentiment Analysis.  This was a simple lambda function that returned to us a set of 4 scores for each review, a positive, neutral, negative and compound score.  The distributions were a little lopsided due to the nature of responses one typically sees on Yelp.  The below graph is a sampling of the frequency of average compound reviews.
 
-<img src=' '>
+<img src='Images/vadercompoundaveragemanhattan.png'>
 
 As we can see, there are more reviews featuring positive sentiment than negative.  That's ok.  So long as we work within this acknowledged framework, we can comprehend the eventual scores.
 
 For those unfamiliar with Vader, below is a snapshot of some of our restaurant reviews that have been "vaderized":
 
-<img src=' '>
+<img src='Images/vadercompoundaveragemanhattan.png'>
 
 To illustrate how Vader sentiment analysis works, below are sample reviews from the restaurant with the highest average compound score, Fish Cheeks (.945), and the lowest, Di Fara Pizza (.511).
 
-<img src=' '> <img src=' '> <img src=' '> <img src=' '>
+<img src='Images/Screen Shot 2019-10-23 at 9.40.46 PM.png '> <img src='Images/Screen Shot 2019-10-23 at 9.41.21 PM.png'> <img src='Images/Screen Shot 2019-10-23 at 9.43.05 PM.png'> <img src='Images/Screen Shot 2019-10-23 at 9.45.04 PM.png'>
 
 As you can see, there are alot of superalitves associated with the food at Fish Cheeks, people are effusive in their praise.  For Di Fara Pizza on the other hand, one of the most famous pizza restaurants in NYC, many people praise the food, but are also dissatisfied with the lines, and the wait is typically 45 minutes to 1.5 hours for a slice of pizza.
 
@@ -66,11 +66,11 @@ The next step in our process is using Latent Dirichlet Allocation.  This is an u
 
 LDA is an exhaustive process that requires constant tuning and rerunning in order to ensure the model is trained sufficiently.  In the end, I needed to add over 1000 additional stopwords in order to ensure my model was sufficiently prepared.  Words I added to the stop list included all parts of speech that were not relevant to the process like brother, sister, steve, delicious, maybe, bomb, scrumptious.  I wanted to ensure food and service focused words were included, but did make sure to leave off service related adjectives in order to expand the range of service.  My final topic list is below:
 
-<img src=' '>
+<img src='Images/LDAtopics.png'>
 
 Once the topic list was finalized, I was able to apply the model to the entirety of my reviews and assign a topic number to the highest scoring topic for each review, as seen below:
 
-<img src=' '>
+<img src='Images/LDAtopicsassigned.png'>
 
 ## Putting it Together
 
@@ -133,7 +133,7 @@ Further distallation can be done to simplify the score, but I feel this provides
 
 All this data was put in a streamlit front end wrapper that allows users to select a restaurant from a dropdown menu and see the scores for each restaurant below:
 
-<img src=' '>
+<img src='Images/frontendsample.png'>
 
 ## Conclusions
 
