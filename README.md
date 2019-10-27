@@ -52,7 +52,7 @@ As we can see, there are more reviews featuring positive sentiment than negative
 
 For those unfamiliar with Vader, below is a snapshot of some of our restaurant reviews that have been "vaderized":
 
-<img src='Images/vadercompoundaveragemanhattan.png'>
+<img src='Images/vaderyelpsnapshot.png'>
 
 To illustrate how Vader sentiment analysis works, below are sample reviews from the restaurant with the highest average compound score, Fish Cheeks (.945), and the lowest, Di Fara Pizza (.511).
 
