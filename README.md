@@ -131,9 +131,15 @@ The final result is stored in a dictionary that we can than convert to a json fi
 
 Further distallation can be done to simplify the score, but I feel this provides a sufficient snap shot for restaurant owners to discern where they are relative to the baseline as time goes on.
 
+All this data was put in a streamlit front end wrapper that allows users to select a restaurant from a dropdown menu and see the scores for each restaurant below:
+
+<img src=' '>
+
 ## Conclusions
 
+This project was a fun exercise that combines my passion for food and restaurants in general with my budding data science skills.  There were also some valuable lessons learned.  I now know that LDA is not a model that I want to use in a limited time frame, and could possibly have better sped things up using TFIDF and using a machine learning classifier.  In this case, I used LDA because I wanted to stretch my capabilities and venture into unsupervised learning.  I also enjoyed the easy interpretability of LDA that gave me greater control on fine tuning the model.  In the end, I ended up using TF-IDF in combination with LDA in order to better bubble up service as my topic.
 
+Further expansion of this project will include review snapshots so that restaurant owners can get a sampling of specific events they may want to address, in addition, it may help them better understand the data.  In addition, I'd like to compile an overall report card by borough to determine if each borough has specific deficiencies.  Lastly, I'd like to refine my data a little more and explore if overall rating is affected by these topics.
 
 
 
