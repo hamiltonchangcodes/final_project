@@ -15,6 +15,28 @@ import numpy as np
 import pandas as pd
 
 
+# In[ ]:
+
+
+def load_data(data):
+    if data == 'Manhattan':
+        df = pd.read_csv('displaycardManhattan.csv')
+       
+    elif data == 'Brooklyn':
+        df = pd.read_csv('displaycardBrooklyn.csv')
+        
+    elif data == 'Queens':
+        df = pd.read_csv('displaycardQueens.csv')
+      
+    elif data == 'Staten Island':
+        df = pd.read_csv('displaycardStatenIsland.csv')
+      
+    elif data == 'The Bronx':
+        df = pd.read_csv('displaycardBronx.csv')
+   
+    return df
+
+
 # In[9]:
 
 
@@ -55,25 +77,61 @@ st.markdown('## Feel Free to Play with it!')
 # In[22]:
 
 
-df1 = pd.read_csv('displaycardManhattan.csv')
+#df1 = pd.read_csv('displaycardManhattan.csv')
 
 
 # In[23]:
 
 
-df1 = df1.set_index('restaurant')
+#df1 = df1.set_index('restaurant')
 
 
 # In[26]:
 
 
-df1 = df1.drop(columns='Unnamed: 0')
+#df1 = df1.drop(columns='Unnamed: 0')
+
+
+# In[ ]:
+
+
+boros = ['Manhattan', 'Brooklyn', 'Queens', 'Staten Island', 'The Bronx']
 
 
 # In[24]:
 
 
-named = df1.index.to_list()
+#named = df1.index.to_list()
+
+
+# In[ ]:
+
+
+boro = st.sidebar.selectbox('Choose a Borough', boros)
+
+
+# In[ ]:
+
+
+df = load_data(boro)
+
+
+# In[ ]:
+
+
+df = df.set_index('restaurant')
+
+
+# In[ ]:
+
+
+df = df.drop(columns = 'Unnamed: 0')
+
+
+# In[ ]:
+
+
+named = df.index.to_list()
 
 
 # In[ ]:
@@ -93,20 +151,13 @@ st.balloons()
 # In[ ]:
 
 
-st.write(df1.loc[option])
+st.write(df.loc[option])
 
 
 # In[9]:
 
 
-st.bar_chart(df1.loc[option], height=40)
-
-
-# In[3]:
-
-
-number = st.number_input('give me a number!')
-st.write('you chose', number)
+st.bar_chart(df.loc[option], height=40)
 
 
 # In[ ]:
