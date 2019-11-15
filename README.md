@@ -148,6 +148,9 @@ All this data was put in a streamlit front end wrapper that allows users to sele
 
 <img src='Images/frontendsample.png' height='60%' width = '60%'>
 
+You can play with it at the below link:
+<a href='https://desolate-ocean-14363.herokuapp.com/'>
+
 ## Conclusions
 
 This project was a fun exercise that combines my passion for food and restaurants in general with my budding data science skills.  There were also some valuable lessons learned.  I now know that LDA is not a model that I want to use in a limited time frame, and could possibly have better sped things up using TFIDF and using a machine learning classifier.  In this case, I used LDA because I wanted to stretch my capabilities and venture into unsupervised learning.  I also enjoyed the easy interpretability of LDA that gave me greater control on fine tuning the model.  In the end, I ended up using TF-IDF in combination with LDA in order to better bubble up service as my topic.
