@@ -1,22 +1,22 @@
 # Yelp Report Cards
 
-Welcome to Yelp Report Cards.  In this project, if is my aim to produce a business value-add to Yelp's current business owner services by attempting to generate a baseline report card for restaurants generated from sentiment analysis using NLTK's Vader Sentiment Analysis and combining it with topic modeling using Genism's LDA library.
+Welcome to a project i’m calling the Yelp Report Cards. In this project, it is my aim to produce a business value-add to Yelp’s current business owner services. Using NLTK’s Vader Sentiment Analysis and combining it with Genism’s LDA library, I created a quantitative report card for restaurants to determine areas in which they are doing well, and areas in which they can improve on.
 
 ## The Business Case
 
-Yelp is quite possibly the largest review site in the world for local businesses, encompassing all forms of small businesses from doctor's offices to cleaning services.  At its core however, Yelp began as a crowd-sourced review site, democratizing the restaurant review process and bringing greater exposure to restaurants all over the world by soliciting user-generated content for the restaurants in its database.
+Yelp is quite possibly the largest review site in the world for local businesses, encompassing all sorts of businesses from doctor’s offices to cleaning services. At its core however, Yelp began as a crowd-sourced review site, democratizing the restaurant review process and bringing greater exposure to restaurants all over the world by soliciting user-generated content for the restaurants in its database.
 
-Overtime, the popularity of Yelp as a restaurant information resource has led to the creation of millions of points of data.  This has somewhat diluted the impact of Yelp reviews for a restaurant and led to some discontent from restaurant owners.  Below are 3 of many points that resulted in dissatisfaction with business owners on Yelp.
+Over time, the popularity of Yelp as a restaurant information resource has led to the creation of millions of points of data. This has somewhat diluted the impact of Yelp reviews for a restaurant and led to some discontent from restaurant owners. Below are 3 of many points that lead to dissatisfaction with Yelp by business owners.
 
 **1.  Law of Large Numbers**
 
-Due to the sheer volume of reviews, every review that goes into a restaurant ends up stabilizing their rating.  There it stays forever, usually at a 4.  At this point, most restaurants shoot for a 4, and only the truly best manage to get a 4.5.  You can see the distribution in reviews in the below graph.  It is assumed 1 and 2 star restaurants usually end up closing, but I can assure you, my local Chinese take out is open and busy as ever.
+Due to the sheer volume of reviews, every review that goes into a restaurant ends up stabilizing their rating. There it stays forever, usually at a 4. At this point, most restaurants shoot for a 4, and only the truly best like Le Bernadin (3 Michelin Stars), manage to get a 4.5. Restaurants with a 5 star review typically are newer restaurants with less than 30 reviews, and a lot of chefs believe those mostly come from friends of the restaurant. You can see the distribution in reviews in the below graph. It is assumed 1 and 2 star restaurants usually end up closing, but I can assure you, my local Chinese take out is open and busy as ever. This may also be bias from Yelp’s API feeding me restaurants with a higher review count.
 
 <img src="Images/star_hist_report_card.png">
 
 **2.  Extreme Volatility**
 
-Yelp being the designated ground for people looking to respond in some way or another leads to a lot of praise, or angry passive aggressive content.  People who use Yelp for the first time or the thousandth time are usually motivated by extreme experiences, either positive or negative, and as such their reviews tend to reflect those experiences, without taking into account the remainder of the dining experience.  
+Yelp being the designated ground for people looking to respond in some way or another leads to a lot of praise, or angry passive aggressive content. People who use Yelp for the first time or the thousandth time are usually motivated by extreme experiences, either positive or negative, and as such their reviews tend to reflect those experiences, without taking into account the remainder of the dining experience.
 
 **3. Poor representation**
 
@@ -26,7 +26,12 @@ As described above, due to the focus on a single issue we see a large range of p
 
 Given that we have established some of the issues many restaurants face when it comes to dealing with online reviews, is there a way in which Yelp can add value for these restaurants and provide workable feedback?
 
-Yelp holds millions of user reviews, and using NLP we can take this data and provide comprehensive quantitative metrics for a restaurant without having to spend hours hand sorting reviews.  Using this metric, restaurants can hone in on problems and work to improve their business.
+Yelp holds millions of user reviews, and using NLP we can take this data and provide comprehensive quantitative metrics for a restaurant without having to spend hours hand sorting reviews. Using this metric, restaurants can hone in on problems and work to improve their business.
+
+## The Process
+
+The process for creating these metrics are quite simple, and outlined in the below graph:
+<img src="">
 
 ## Step 1:  Gathering Data
 
@@ -40,11 +45,15 @@ Brooklyn: 100,166 Reviews
 Staten Island: 51,490 Reviews
 Bronx: 59,150 Reviews
 
-Both Staten Island and the Bronx were the least responsive on Yelp.  I believe this has something to do with my belief (discussed [here](https://towardsdatascience.com/mo-data-mo-money-a1272f653046)) that most people tend not to leave Yelp reviews unless they have a significant dining experience.  These restaurants, being in home territory, are providing daily meals for the residents, and thus they are largely ignored by locals on Yelp.  Dining in Manhattan is widely considered to be an experience, or special occasion and thus is more likely to garner a response on Yelp.  In addition, consulting with a local Staten Island expert, I was informed that due to Staten Island's largely residential nature, most residents either drive across the bridge into Brooklyn for unique dining experiences, or stay home to eat.  This may contribute to Staten Island's low response rate.
+Both Staten Island and the Bronx were the least responsive on Yelp.  I believe this has something to do with my belief (discussed [here](https://towardsdatascience.com/mo-data-mo-money-a1272f653046)) that most people tend not to leave Yelp reviews unless they have a significant dining experience.  These restaurants, being in home territory, are providing daily meals for the residents, and thus they are largely ignored by locals on Yelp.  Dining in Manhattan is widely considered to be an experience, or special occasion and thus is more likely to garner a response on Yelp.  In addition, consulting with a local Staten Island expert, I was informed that possibly due to Staten Island's largely residential nature, most residents either drive across the bridge into Brooklyn for unique dining experiences, or stay home to eat.  This may contribute to Staten Island's low response rate.
 
 ## Vader
 
-After gathering the data, the first step I took was to run the data through NLTK's Vader Sentiment Analysis.  This was a simple lambda function that returned to us a set of 4 scores for each review, a positive, neutral, negative and compound score.  The distributions were a little lopsided due to the nature of responses one typically sees on Yelp.  The below graph is a sampling of the frequency of average compound reviews.
+After gathering the data, the first step I took was to run the data through NLTK’s Vader Sentiment Analysis. Vader is an extremely simple library to use, trained on Twitter Data. As such, it does not require much data preparation as things like punctuation, capitalization and random stop words help it determine sentiment score.
+
+I did not focus on the number of stars given for the review, because I feel the star rating is arbitrary, and there are no guidelines. Its simply a representation of how mad or happy the reviewer is without providing us with a measurable metric to identify specific problems. For example, a 3 star rating is ambiguous, a person could praise the food, but mention 2–3 things that they were unhappy with at the same time.
+
+Vader was done using a simple lambda function that returned to us a set of 4 scores for each review, a positive, neutral, negative and compound score. The distributions were a little lopsided due to the nature of responses one typically sees on Yelp. The below graph is a sampling of the frequency of average compound reviews.
 
 <img src='Images/vadercompoundaveragemanhattan.png'>
 
@@ -58,15 +67,15 @@ To illustrate how Vader sentiment analysis works, below are sample reviews from 
 
 <img src='Images/Screen Shot 2019-10-23 at 9.40.46 PM.png' height='45%' width = '45%'><img src='Images/Screen Shot 2019-10-23 at 9.41.21 PM.png' height='45%' width = '45%'><img src='Images/Screen Shot 2019-10-23 at 9.43.05 PM.png' height='45%' width = '45%'><img src='Images/Screen Shot 2019-10-23 at 9.45.04 PM.png' height='45%' width = '45%'>
 
-As you can see, there are alot of superalitves associated with the food at Fish Cheeks, people are effusive in their praise.  For Di Fara Pizza on the other hand, one of the most famous pizza restaurants in NYC, many people praise the food, but are also dissatisfied with the lines, and the wait is typically 45 minutes to 1.5 hours for a slice of pizza.
+As you can see, there are a lot of superlatives associated with the food at Fish Cheeks, people are effusive in their praise. For Di Fara Pizza on the other hand, one of the most famous pizza restaurants in NYC, many people praise the food, but are also dissatisfied with the lines, as the wait is typically 45 minutes to 1.5 hours for a slice of pizza. This also lends weight to my assertion that stars are too ambiguous. There are clearly problems with service at DiFara, but many of the reviews are 5 stars, which would give us a false positive on identifying service problems if I were to use the star system to determine sentiment.
 
 ## LDA
 
 The next step in our process is using Latent Dirichlet Allocation.  This is an unsupervised machine learning tool that samples the corpus (all the text) of our data and attempts to derive common topics.  I trained this model on restaurants where service was mentioned, and this comprised only 30% of my overall data.  I instructed the LDA to find 15 topics, since I knew service was underrepresented in my data, so I was looking for at least 2 topics that represented service, and the rest I needed to ensure that the entirety of cuisine on offer in NYC was represented.  It would have been an epic failure if my model was to come across a review mentioning the food and fail at identifying it.
 
-LDA is an exhaustive process that requires constant tuning and rerunning in order to ensure the model is trained sufficiently.  In the end, I needed to add over 1000 additional stopwords in order to ensure my model was sufficiently prepared.  Words I added to the stop list included all parts of speech that were not relevant to the process like brother, sister, steve, delicious, maybe, bomb, scrumptious.  I wanted to ensure food and service focused words were included, but did make sure to leave off the stop list service related adjectives in order to expand the range of service.  My final topic list is below:
+LDA is an exhaustive process that requires constant tuning and rerunning in order to ensure the model is trained sufficiently. In addition to cleaning, lemmatizing, and tokenizing, I also needed to remove a multitude of stop words beyond those found in the standard stopword library. In the end, I needed to add over 1000 additional stop words per borough in order to ensure my model was sufficiently prepared. Words I added to the stop list included all parts of speech that were not relevant to the process like “brother”, “sister”, “steve”, “delicious”, “maybe”, “bomb”, and “scrumptious”. I wanted to ensure food and service oriented words were included, but did make sure to leave off the stop list service related adjectives in order to expand the range of service. My final topic list is below:
 
-<img src='Images/LDAtopics.png' height='75%' width = '75%'>
+<img src='Images/Topics/Queenstopics.png' height='75%' width = '75%'>
 
 Once the topic list was finalized, I was able to apply the model to the entirety of my reviews and assign a topic number to the highest scoring topic for each review, as seen below:
 
@@ -77,6 +86,10 @@ Once the topic list was finalized, I was able to apply the model to the entirety
 The final part of the project involved loading the Vader and LDA dataframes and writing a function to tally each one and create a score.  The code is below:
 
 ```python
+#df is topic modeled restaurant reviews dataframe
+#vd is vaderized restaurant reviews dataframe
+#maintaining index integrity is important for this function
+
 #establishing food vs service topics
 food = [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14]
 service = [0, 8, 9]
