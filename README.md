@@ -148,7 +148,7 @@ All this data was put in a streamlit front end wrapper that allows users to sele
 
 <img src='Images/frontendsample.png' height='60%' width = '60%'>
 
-You can play with it at the below link:
+You can play with it at the below link:  
 https://desolate-ocean-14363.herokuapp.com/
 
 ## Conclusions
