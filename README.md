@@ -31,7 +31,7 @@ Yelp holds millions of user reviews, and using NLP we can take this data and pro
 ## The Process
 
 The process for creating these metrics are quite simple, and outlined in the below graph:
-<img src="">
+<img src="Images/flowchart.png">
 
 ## Step 1:  Gathering Data
 
