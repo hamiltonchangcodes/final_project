@@ -75,7 +75,7 @@ The next step in our process is using Latent Dirichlet Allocation.  This is an u
 
 LDA is an exhaustive process that requires constant tuning and rerunning in order to ensure the model is trained sufficiently. In addition to cleaning, lemmatizing, and tokenizing, I also needed to remove a multitude of stop words beyond those found in the standard stopword library. In the end, I needed to add over 1000 additional stop words per borough in order to ensure my model was sufficiently prepared. Words I added to the stop list included all parts of speech that were not relevant to the process like “brother”, “sister”, “steve”, “delicious”, “maybe”, “bomb”, and “scrumptious”. I wanted to ensure food and service oriented words were included, but did make sure to leave off the stop list service related adjectives in order to expand the range of service. My final topic list is below:
 
-<img src='Images/Topics/Queenstopics.png' height='75%' width = '75%'>
+<img src='Images/Topics/Queens Topics.png' height='75%' width = '75%'>
 
 Once the topic list was finalized, I was able to apply the model to the entirety of my reviews and assign a topic number to the highest scoring topic for each review, as seen below:
 
