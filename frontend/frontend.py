@@ -56,6 +56,12 @@ image = Image.open('download.png')
 st.image(image, caption='Yelp!', use_column_width=False, format='PNG')
 
 
+# In[ ]:
+
+
+st.markdown('## UPDATE: Snapshot of positive and negative reviews have been added!')
+
+
 # In[12]:
 
 
@@ -177,7 +183,7 @@ st.bar_chart(df.loc[option], height=40)
 # In[ ]:
 
 
-st.write('The below is a snapshot of some Positive and Negative Reviews')
+st.markdown('## The below is a snapshot of some Positive and Negative Reviews:')
 
 
 # In[ ]:
