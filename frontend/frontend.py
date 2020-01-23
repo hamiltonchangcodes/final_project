@@ -22,17 +22,22 @@ def load_data(data):
     if data == 'Manhattan':
         df = pd.read_csv('displaycardManhattan.csv', encoding='utf-8')
         sn = pd.read_csv('Manhattan_snapshot.csv', encoding='utf-8')
+    
     elif data == 'Brooklyn':
         df = pd.read_csv('displaycardBrooklyn.csv', encoding='utf-8')
+        sn = pd.read_csv('Brooklyn_snapshot.csv', encoding='utf-8')
         
     elif data == 'Queens':
         df = pd.read_csv('displaycardQueens.csv', encoding='utf-8')
+        sn = pd.read_csv('Queens_snapshot.csv', encoding='utf-8')
       
     elif data == 'Staten Island':
         df = pd.read_csv('displaycardStatenIsland.csv', encoding='utf-8')
+        sn = pd.read_csv('StatenIsland_snapshot.csv', encoding='utf-8')
       
     elif data == 'The Bronx':
         df = pd.read_csv('displaycardBronx.csv', encoding='utf-8')
+        sn = pd.read_csv('Bronx_snapshot.csv', encoding='utf-8')
    
     return df, sn
 
@@ -116,10 +121,10 @@ boros = ['Manhattan', 'Brooklyn', 'Queens', 'Staten Island', 'The Bronx']
 boro = st.sidebar.selectbox('Choose a Borough', boros)
 
 
-# In[ ]:
+# In[1]:
 
 
-df, sn = load_data(boro)
+df,sn = load_data(boro)
 
 
 # In[ ]:
