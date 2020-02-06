@@ -189,7 +189,7 @@ tracker = int(df.loc[option][-1])
 # In[71]:
 
 
-st.write(df.iloc[tracker][0,3])
+st.write(df.iloc[tracker, :4])
 
 
 # In[ ]:
@@ -225,7 +225,7 @@ st.write(df.iloc[tracker][0,3])
 # In[108]:
 
 
-st.bar_chart(df.iloc[tracker], height=40)
+st.bar_chart(df.iloc[tracker, :4], height=40)
 
 
 # In[ ]:
