@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
+# In[2]:
 
 
 from PIL import Image
 
 
-# In[2]:
+# In[37]:
 
 
 import streamlit as st
@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 
 
-# In[2]:
+# In[61]:
 
 
 def load_data(data):
@@ -103,25 +103,25 @@ st.markdown('## Feel Free to Play with it!')
 #df1 = df1.drop(columns='Unnamed: 0')
 
 
-# In[ ]:
+# In[62]:
 
 
 boros = ['Manhattan', 'Brooklyn', 'Queens', 'Staten Island', 'The Bronx']
 
 
-# In[24]:
+# In[63]:
 
 
 #named = df1.index.to_list()
 
 
-# In[ ]:
+# In[64]:
 
 
 boro = st.sidebar.selectbox('Choose a Borough', boros)
 
 
-# In[1]:
+# In[65]:
 
 
 df,sn = load_data(boro)
@@ -133,14 +133,14 @@ df,sn = load_data(boro)
 
 
 
-# In[ ]:
+# In[66]:
 
 
 df = df.set_index('restaurant')
 sn = sn.set_index('restaurant')
 
 
-# In[ ]:
+# In[67]:
 
 
 df = df.drop(columns = 'Unnamed: 0')
@@ -150,10 +150,23 @@ sn = sn.drop(columns = 'Unnamed: 0')
 # In[ ]:
 
 
-named = df.index.to_list()
+df['new col'] = range(0, len(df))
+sn['new col'] = range(0, len(sn))
 
 
 # In[ ]:
+
+
+
+
+
+# In[68]:
+
+
+named = df.index.to_list()
+
+
+# In[69]:
 
 
 option = st.sidebar.selectbox(
@@ -161,7 +174,7 @@ option = st.sidebar.selectbox(
      named)
 
 
-# In[8]:
+# In[70]:
 
 
 st.balloons()
@@ -170,16 +183,46 @@ st.balloons()
 # In[ ]:
 
 
-st.write(df.iloc[df.loc[option]])
+tracker = int(df.loc[option][-1])
+
+
+# In[71]:
+
+
+st.write(df.iloc[tracker][0,3])
 
 
 # In[ ]:
 
 
-tracker = df.iloc[df.loc[option]]
 
 
-# In[1]:
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[108]:
 
 
 st.bar_chart(df.iloc[tracker], height=40)
