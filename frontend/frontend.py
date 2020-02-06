@@ -179,7 +179,7 @@ st.write(df.iloc[df.loc[option]])
 
 
 
-# In[9]:
+# In[1]:
 
 
 st.bar_chart(df.loc[option], height=40)
@@ -194,37 +194,37 @@ st.markdown('## The below is a snapshot of some Positive and Negative Reviews:')
 # In[ ]:
 
 
-st.write(sn.loc[option]['Positive Review 1'])
+st.write(sn.iloc[sn.loc[option]]['Positive Review 1'])
 
 
 # In[ ]:
 
 
-st.write(sn.loc[option]['Positive Review 2'])
+st.write(sn.iloc[sn.loc[option]]['Positive Review 2'])
 
 
 # In[ ]:
 
 
-st.write(sn.loc[option]['Positive Review 3'])
+st.write(sn.iloc[sn.loc[option]]['Positive Review 3'])
 
 
 # In[ ]:
 
 
-st.write(sn.loc[option]['Negative Review 1'])
+st.write(sn.iloc[sn.loc[option]]['Negative Review 1'])
 
 
 # In[ ]:
 
 
-st.write(sn.loc[option]['Negative Review 2'])
+st.write(sn.iloc[sn.loc[option]]['Negative Review 2'])
 
 
 # In[ ]:
 
 
-st.write(sn.loc[option]['Negative Review 3'])
+st.write(sn.iloc[sn.loc[option]]['Negative Review 3'])
 
 
 # In[ ]:
