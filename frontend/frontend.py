@@ -154,10 +154,10 @@ df['new col'] = range(0, len(df))
 sn['new col'] = range(0, len(sn))
 
 
-# In[ ]:
+# In[122]:
 
 
-
+df.head()
 
 
 # In[68]:
@@ -171,7 +171,7 @@ named = df.index.to_list()
 
 option = st.sidebar.selectbox(
     'Choose a Restaurant',
-     named)
+     df.index)
 
 
 # In[70]:
@@ -274,4 +274,63 @@ st.write(sn.iloc[tracker]['Negative Review 3'])
 
 
 
+
+
+# In[ ]:
+
+
+
+
+
+# In[109]:
+
+
+df = pd.read_csv('displaycardQueens.csv', encoding='utf-8')
+sn = pd.read_csv('Queens_snapshot.csv', encoding='utf-8')
+
+
+# In[110]:
+
+
+df = df.set_index('restaurant')
+sn = sn.set_index('restaurant')
+
+
+# In[111]:
+
+
+df = df.drop(columns = 'Unnamed: 0')
+sn = sn.drop(columns = 'Unnamed: 0')
+
+
+# In[112]:
+
+
+df['new col'] = range(0, len(df))
+sn['new col'] = range(0, len(sn))
+
+
+# In[114]:
+
+
+df.head(20)
+
+
+# In[121]:
+
+
+tracker = int(df.loc['Sweet Chick'])
+
+
+# In[118]:
+
+
+tracker
+
+
+# In[ ]:
+
+
+#problem still is finding the entry.
+#Create dictionary? or create matching list, transpose?
 
