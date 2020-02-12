@@ -164,6 +164,13 @@ df.head()
 
 
 named = df.index.to_list()
+indexed = df['new col'].to_list()
+
+
+# In[ ]:
+
+
+dic = dict(zip(indexed, named))
 
 
 # In[69]:
@@ -171,7 +178,7 @@ named = df.index.to_list()
 
 option = st.sidebar.selectbox(
     'Choose a Restaurant',
-     df.index)
+     named, format_func=lambda x: dic[x])
 
 
 # In[70]:
@@ -282,11 +289,17 @@ st.write(sn.iloc[tracker]['Negative Review 3'])
 
 
 
-# In[109]:
+# In[123]:
 
 
 df = pd.read_csv('displaycardQueens.csv', encoding='utf-8')
 sn = pd.read_csv('Queens_snapshot.csv', encoding='utf-8')
+
+
+# In[124]:
+
+
+df.head()
 
 
 # In[110]:
@@ -333,4 +346,5 @@ tracker
 
 #problem still is finding the entry.
 #Create dictionary? or create matching list, transpose?
+#how to save index location from matching name?
 
