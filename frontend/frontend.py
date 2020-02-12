@@ -7,7 +7,7 @@
 from PIL import Image
 
 
-# In[37]:
+# In[2]:
 
 
 import streamlit as st
@@ -15,7 +15,7 @@ import numpy as np
 import pandas as pd
 
 
-# In[61]:
+# In[3]:
 
 
 def load_data(data):
@@ -160,7 +160,7 @@ sn['new col'] = range(0, len(sn))
 df.head()
 
 
-# In[68]:
+# In[1]:
 
 
 named = df.index.to_list()
@@ -178,7 +178,7 @@ dic = dict(zip(indexed, named))
 
 option = st.sidebar.selectbox(
     'Choose a Restaurant',
-     named, format_func=lambda x: dic[x])
+     indexed, format_func=lambda x: dic[x])
 
 
 # In[70]:
@@ -190,13 +190,13 @@ st.balloons()
 # In[ ]:
 
 
-tracker = int(df.loc[option][-1])
+
 
 
 # In[71]:
 
 
-st.write(df.iloc[tracker, :4])
+st.write(df.iloc[option, :4])
 
 
 # In[ ]:
@@ -232,7 +232,7 @@ st.write(df.iloc[tracker, :4])
 # In[108]:
 
 
-st.bar_chart(df.iloc[tracker, :4], height=40)
+st.bar_chart(df.iloc[option, :4], height=40)
 
 
 # In[ ]:
@@ -244,43 +244,37 @@ st.markdown('## The below is a snapshot of some Positive and Negative Reviews:')
 # In[ ]:
 
 
-st.write(sn.iloc[tracker]['Positive Review 1'])
+st.write(sn.iloc[option]['Positive Review 1'])
 
 
 # In[ ]:
 
 
-st.write(sn.iloc[tracker]['Positive Review 2'])
+st.write(sn.iloc[option]['Positive Review 2'])
 
 
 # In[ ]:
 
 
-st.write(sn.iloc[tracker]['Positive Review 3'])
+st.write(sn.iloc[option]['Positive Review 3'])
 
 
 # In[ ]:
 
 
-st.write(sn.iloc[tracker]['Negative Review 1'])
+st.write(sn.iloc[option]['Negative Review 1'])
 
 
 # In[ ]:
 
 
-st.write(sn.iloc[tracker]['Negative Review 2'])
+st.write(sn.iloc[option]['Negative Review 2'])
 
 
 # In[ ]:
 
 
-st.write(sn.iloc[tracker]['Negative Review 3'])
-
-
-# In[ ]:
-
-
-
+st.write(sn.iloc[option]['Negative Review 3'])
 
 
 # In[ ]:
@@ -289,56 +283,69 @@ st.write(sn.iloc[tracker]['Negative Review 3'])
 
 
 
-# In[123]:
+# In[ ]:
 
 
-df = pd.read_csv('displaycardQueens.csv', encoding='utf-8')
-sn = pd.read_csv('Queens_snapshot.csv', encoding='utf-8')
 
 
-# In[124]:
+
+# In[4]:
 
 
-df.head()
+#df = pd.read_csv('displaycardQueens.csv', encoding='utf-8')
+#sn = pd.read_csv('Queens_snapshot.csv', encoding='utf-8')
 
 
-# In[110]:
+# In[5]:
 
 
-df = df.set_index('restaurant')
-sn = sn.set_index('restaurant')
+#df.head()
 
 
-# In[111]:
+# In[6]:
 
 
-df = df.drop(columns = 'Unnamed: 0')
-sn = sn.drop(columns = 'Unnamed: 0')
+#df = df.set_index('restaurant')
+#sn = sn.set_index('restaurant')
 
 
-# In[112]:
+# In[7]:
 
 
-df['new col'] = range(0, len(df))
-sn['new col'] = range(0, len(sn))
+#df = df.drop(columns = 'Unnamed: 0')
+#sn = sn.drop(columns = 'Unnamed: 0')
 
 
-# In[114]:
+# In[8]:
 
 
-df.head(20)
+#df['new col'] = range(0, len(df))
+#sn['new col'] = range(0, len(sn))
 
 
-# In[121]:
+# In[9]:
 
 
-tracker = int(df.loc['Sweet Chick'])
+#named = df.index.to_list()
+#indexed = df['new col'].to_list()
+
+
+# In[10]:
+
+
+#dic = dict(zip(indexed, named))
+
+
+# In[11]:
+
+
+#dic
 
 
 # In[118]:
 
 
-tracker
+# tracker
 
 
 # In[ ]:
